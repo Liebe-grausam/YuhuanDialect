@@ -1,5 +1,6 @@
 # YuhuanDialect
 Dictionary of Yuhuan Dialect for personal use.
+
 ---
 **2024/4/21更新**
 ## m4a_to_ogg.py
@@ -10,3 +11,9 @@ Dictionary of Yuhuan Dialect for personal use.
 遍历vowel文件夹中的所有文件，截取去掉静音部分的音频，保存至output_vowel文件夹中。
 ## combine.py
 使用交叉淡入淡出平滑连接元音和辅音。
+
+---
+**2024/4/22更新**
+增加了一些新录制的声母韵母。
+## modulate.py
+暂未实现连续变调，但已可以实现整体变调。
