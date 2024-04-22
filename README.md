@@ -1,7 +1,6 @@
 # YuhuanDialect
 Dictionary of Yuhuan Dialect for personal use.
 
----
 
 ## preprocessing.py
 ### m4a_to_ogg
@@ -11,12 +10,8 @@ Dictionary of Yuhuan Dialect for personal use.
 ### vowel_silence_removal
 遍历vowel文件夹中的所有文件，截取去掉静音部分的音频，保存至output_vowel文件夹中。
 
----
-
 ## combine.py
 使用交叉淡入淡出平滑连接元音和辅音。
-
----
 
 ## modulate.py
 暂未实现连续变调，但已可以实现整体变调。
