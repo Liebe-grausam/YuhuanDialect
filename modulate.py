@@ -32,8 +32,8 @@ if __name__ == "__main__":
     script_dir = os.path.dirname(os.path.abspath(__file__))
 
     # 构建完整的文件路径
-    audio_file = os.path.join(script_dir, 'output_vowel', 'au.ogg')
-    output_file = os.path.join(script_dir, 'output_modulate', 'au_lowered.ogg')
+    audio_file = os.path.join(script_dir, 'output_vowel', 'a.ogg')
+    output_file = os.path.join(script_dir, 'output_modulate', 'a_lowered.ogg')
 
     # 设置变调半音数（正数为提高音调，负数为降低音调）
     semitone_shift = -2  # 例如：降低两个半音
