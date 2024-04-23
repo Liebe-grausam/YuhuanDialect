@@ -15,3 +15,6 @@ Dictionary of Yuhuan Dialect for personal use.
 
 ## modulate.py
 暂未实现连续变调，但已可以实现整体变调。
+
+## new_combine.py
+输入是一个列表，比如[(f,0),(a,-2),(#,0),(t,0),(ei,0)]就代表要将f.ogg,a.ogg,t.ogg,ei.ogg串联起来，其中a.ogg和t.ogg之间的#代表中间插入一段静音以模拟语气的停顿。每个音素后面的数字代表升或降的半音数（仍然在调试参数中）。
