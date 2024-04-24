@@ -10,11 +10,10 @@ Dictionary of Yuhuan Dialect for personal use.
 ### vowel_silence_removal
 遍历vowel文件夹中的所有文件，截取去掉静音部分的音频，保存至output_vowel文件夹中。
 
-## combine.py
-使用交叉淡入淡出平滑连接元音和辅音。
-
-## modulate.py
-暂未实现连续变调，但已可以实现整体变调。
-
 ## new_combine.py
-输入是一个列表，比如[(f,0),(a,-2),(#,0),(t,0),(ei,0)]就代表要将f.ogg,a.ogg,t.ogg,ei.ogg串联起来，其中a.ogg和t.ogg之间的#代表中间插入一段静音以模拟语气的停顿。每个音素后面的数字代表升或降的半音数（仍然在调试参数中）。
+使用交叉淡入淡出平滑连接元音和辅音，现在已经可以实现输入一个音素列表来连接成一个完整的词语了。
+
+## new_modulate.py
+输入为音素与变调数的元组列表，将变调后的各个音素文件存储在临时文件夹中。
+
+
