@@ -49,6 +49,8 @@ def divide_consonant(input_folder, output_folder, silence_thresh=-40, min_silenc
     silence_thresh (float): 静音阈值（默认为-40dB）。
     min_silence_len (int): 最小静音长度（默认为50毫秒）。
     chunk_len (int): 要提取的音频片段长度（默认为50毫秒）。
+
+    新增辅音加强音量功能（可选）。
     """
     
     # 确保输出文件夹存在
@@ -68,7 +70,7 @@ def divide_consonant(input_folder, output_folder, silence_thresh=-40, min_silenc
             start_pos = nonsilent_intervals[0][0]
             # 截取去掉静音部分后的音频片段
             chunk = audio[start_pos:start_pos + chunk_len]
-
+            # chunk = chunk + 15
             # 保存截取出的音频
             output_file = os.path.join(output_folder, filename)
             chunk.export(output_file, format="ogg")
@@ -78,7 +80,7 @@ def divide_consonant(input_folder, output_folder, silence_thresh=-40, min_silenc
             print(f"No non-silent parts were found in {filename}.")
 
 
-def vowel_silence_removal(source_folder, output_folder, silence_thresh=-40, min_silence_len=50):
+def vowel_silence_removal(source_folder, output_folder, silence_thresh=-40, min_silence_len=50,chunk_len=100):
     """
     从给定的音频文件夹中提取非静音部分，并保存为新的OGG文件。
     
@@ -109,7 +111,7 @@ def vowel_silence_removal(source_folder, output_folder, silence_thresh=-40, min_
             # 如果找到非静音部分，截取去掉静音部分后的音频
             if nonsilent_intervals:
                 start_pos = nonsilent_intervals[0][0]
-                chunk = audio[start_pos:]
+                chunk = audio[start_pos:start_pos+chunk_len]
                 
                 # 确定输出文件路径
                 output_file_path = os.path.join(output_folder, file_name)
@@ -125,21 +127,26 @@ def vowel_silence_removal(source_folder, output_folder, silence_thresh=-40, min_
 
 # 示例调用
 if __name__ == "__main__":
-    # 1. m4a_to_ogg 示例调用
-    source_folder = 'raw'
-    output_folder = 'converted_to_ogg'
-    
-    m4a_to_ogg(source_folder, output_folder)
+    # # 1. m4a_to_ogg 示例调用
+    # source_folder = 'raw'
+    # output_folder = 'converted_to_ogg'
+    # m4a_to_ogg(source_folder, output_folder)
+
     # 2. divide_consonant 示例调用
     input_folder = "consonant"
     output_folder = "output_consonant"
-    
     divide_consonant(input_folder, output_folder)
 
     # 3. vowel_silence_removal 示例调用
-    source_folder = 'vowel'
-    output_folder = 'output_vowel'
+    # source_folder = 'vowel'
+    # output_folder = 'output_vowel'
+    # vowel_silence_removal(source_folder, output_folder)
+
+
+
+
     
-    vowel_silence_removal(source_folder, output_folder)
+
+
 
 
