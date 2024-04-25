@@ -39,7 +39,7 @@ def m4a_to_ogg(source_folder, output_folder):
     print("Conversion complete.")
 
 
-def divide_consonant(input_folder, output_folder, silence_thresh=-40, min_silence_len=50, chunk_len=50):
+def divide_consonant(input_folder, output_folder, silence_thresh=-40, min_silence_len=50, chunk_len=35):
     """
     从输入文件夹中的音频文件中提取非静音部分，并保存为新的OGG文件。
     
@@ -127,10 +127,14 @@ def vowel_silence_removal(source_folder, output_folder, silence_thresh=-40, min_
 
 # 示例调用
 if __name__ == "__main__":
-    # # 1. m4a_to_ogg 示例调用
-    # source_folder = 'raw'
-    # output_folder = 'converted_to_ogg'
-    # m4a_to_ogg(source_folder, output_folder)
+    # 1. m4a_to_ogg 示例调用
+    source_folder = 'raw_consonant'
+    output_folder = 'consonant'
+    m4a_to_ogg(source_folder, output_folder)
+
+    source_folder = 'raw_vowel'
+    output_folder = 'vowel'
+    m4a_to_ogg(source_folder, output_folder)
 
     # 2. divide_consonant 示例调用
     input_folder = "consonant"
@@ -138,9 +142,9 @@ if __name__ == "__main__":
     divide_consonant(input_folder, output_folder)
 
     # 3. vowel_silence_removal 示例调用
-    # source_folder = 'vowel'
-    # output_folder = 'output_vowel'
-    # vowel_silence_removal(source_folder, output_folder)
+    source_folder = 'vowel'
+    output_folder = 'output_vowel'
+    vowel_silence_removal(source_folder, output_folder)
 
 
 
